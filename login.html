@@ -1,0 +1,18 @@
+
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <head>
+        <br></br>
+        <title>Project</title>
+        <h1>Please input Login </h1>
+    </head>
+    <body>
+        <form action="/login" method="post">
+            <label for = "Username"> Username</label>
+            <input type="text" id = "Username" name = "Username" > <br><br>
+            <label for = "Password"> Password</label>
+            <input type="text" id = "Password" name = "Password"> <br><br>
+            <input type="submit" name="Submit" value="Submit">
+        </form>
+    </body>
+</html> 

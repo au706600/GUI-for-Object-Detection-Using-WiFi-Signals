@@ -1,0 +1,29 @@
+
+<html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <header>
+        <div>
+            <menu>
+                <style>
+                    menu{
+                        background: linear-gradient(#000099, #a5d3ff);
+                    }
+                </style>
+                <li><a href="{{ url_for('new_page') }}">Home</a></li>
+                <li><a href="{{ url_for('Support') }}">Technical Support</a></li>
+                <li><a href="{{ url_for('About') }}">About</a></li>
+                </menu>
+        </div>
+    </header>
+
+    <body>
+        <div id="textwindow">
+            <br></br>
+            <div>
+                <h1>Technical Support</h1>
+            </div>
+            <p>Technical Support: 202106601@post.au.dk</p>
+        </div>
+    </body>
+</html>
