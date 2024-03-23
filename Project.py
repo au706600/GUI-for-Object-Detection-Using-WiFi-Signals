@@ -59,6 +59,16 @@ def new_page(): # new page (main page)
     else:
         if 'coordinates' not in flask.session:
             flask.session['coordinates'] = []
+        
+        if 'esti_theta' not in flask.session:
+            flask.session['esti_theta'] = []
+        
+        if 'esti_d' not in flask.session:
+            flask.session['esti_d'] = []
+        
+        if 'collection' not in flask.session:
+            flask.session['collection'] = []
+
             # Getting data x and y received in a flask request after posted form input
         x = flask.request.form.get('x', type = float)
         y = flask.request.form.get('y', type = float)
@@ -77,11 +87,17 @@ def new_page(): # new page (main page)
 
             flask.session['esti_theta'] = esti_theta.tolist()
 
-            flask.session['esti_d'] = esti_d.tolist()
+            flask.session['esti_d'] = esti_d.tolist()   
+
+            flask.session['collection'].append((esti_theta.tolist(), esti_d.tolist()))
+
+
+            # Storing the estimation coordinates based on esti_theta and esti_d: 
 
             # Updating the session and storing the coordinates in a list in order to display, 
             # so it has to be stored, in order to continually input coordinates
             flask.session.modified = True
+
 
         coordinates = np.array(flask.session.get('coordinates', []))
 
@@ -89,8 +105,10 @@ def new_page(): # new page (main page)
 
         esti_d = np.array(flask.session.get('esti_d', []))
 
+        collection = flask.session.get('collection', [])
+
             # Showing the objects in the room
-        output = show_objects(coordinates, esti_theta, esti_d) 
+        output = show_objects(coordinates, esti_theta, esti_d, collection) 
         # returning the output of the show_objects function
         return flask.render_template('New_Page.html', output=output)
 
