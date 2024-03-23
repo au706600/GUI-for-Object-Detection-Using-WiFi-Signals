@@ -22,7 +22,7 @@ import numpy as np
 from Algorithm_RIS import run_mse_esti
 
 
-def show_objects(coordinates = None, esti_theta = None, esti_d = None): 
+def show_objects(coordinates = None, esti_theta = None, esti_d = None, collection = None): 
 
     # true position coordinates
     detect_objects = [(1,1), (3,1), (8,5), (2,2), (3,5)] 
@@ -44,22 +44,30 @@ def show_objects(coordinates = None, esti_theta = None, esti_d = None):
         plt.scatter(*zip(*detect_objects), color='red', label = 'True objects')
         plt.text(dots[0], dots[1], f'({dots[0]}, {dots[1]})', fontsize=9)
 
+
+    if collection is None: 
+        collection = []
     
-    for i in range(len(esti_theta)):
+        
+    
+    for item in collection: 
+        esti_theta, esti_d = item
+    
+        for theta_est, distance_est in zip(esti_theta, esti_d):
 
-        theta = esti_theta[i]
+            deltaX_r = distance_est * np.cos(np.deg2rad(theta_est))
 
-        d = esti_d[i]
+            deltaY_r = distance_est * np.sin(np.deg2rad(theta_est))
 
-        deltaX_r = d * np.cos(np.deg2rad(theta))
+            esti_obj_pos = [RIS_pos[0] + deltaX_r, RIS_pos[1] + deltaY_r, 0]
 
-        deltaY_r = d * np.sin(np.deg2rad(theta))
-
-        esti_obj_pos = [RIS_pos[0] + deltaX_r, RIS_pos[1] + deltaY_r, 0]
+            esti = patches.Rectangle((esti_obj_pos[0] - 0.25, esti_obj_pos[1] - 0.25), 0.2, 0.2, edgecolor = 'blue', facecolor = 'none')
+            plt.gca().add_patch(esti)
+            plt.text(esti_obj_pos[0], esti_obj_pos[1], f'({esti_obj_pos[0]}, {esti_obj_pos[1]})', fontsize=9)
 
         # Plot estimated object positions based on theta and d estimates
-        plt.scatter(*esti_obj_pos, color='red', label = 'True objects')
-        plt.text(esti_obj_pos[0], esti_obj_pos[1], f'({esti_obj_pos[0]}, {esti_obj_pos[1]})', fontsize=9)
+        #plt.scatter(*esti_obj_pos, color='blue', label = 'Estimated objects')
+        #plt.text(esti_obj_pos[0], esti_obj_pos[1], f'({esti_obj_pos[0]}, {esti_obj_pos[1]})', fontsize=9)
         
 
 
