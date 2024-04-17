@@ -9,6 +9,7 @@ import numpy as np
 
 from Algorithm_RIS import run_mse_esti
 
+from al import statistical_model
 
 app = flask.Flask(__name__) # flask instance
 
@@ -109,8 +110,10 @@ def new_page(): # new page (main page)
 
             # Showing the objects in the room
         output = show_objects(coordinates, esti_theta, esti_d, collection) 
+        # Showing the statistical graphs to verify the estimation of objects
+        st_output, st_output2 = statistical_model()
         # returning the output of the show_objects function
-        return flask.render_template('New_Page.html', output=output)
+        return flask.render_template('New_Page.html', output=output, st_output=st_output, st_output2=st_output2)
 
 @app.route('/about')
 def About(): # about page
