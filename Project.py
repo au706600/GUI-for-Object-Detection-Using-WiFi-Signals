@@ -77,7 +77,7 @@ def new_page(): # new page (main page)
             # Storing the coordinates in a list
             flask.session['coordinates'].append((x,y))
 
-            RIS_pos = np.array([0, 4, 0])
+            RIS_pos = np.array([0, 3, 0])
 
             distance = np.sqrt((x - RIS_pos[0])**2+(y - RIS_pos[1])**2)
 
