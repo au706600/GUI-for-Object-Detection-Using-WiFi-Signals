@@ -32,9 +32,9 @@ def show_objects(coordinates = None, esti_theta = None, esti_d = None, collectio
 
     base_st = [(3,0)] # base station position 
 
-    reflective_st = [(0,4)] # RIS position
+    reflective_st = [(0,3)] # RIS position
 
-    RIS_pos = np.array([0, 4, 0])
+    RIS_pos = np.array([0, 3, 0])
 
     # Size of figure
     plt.figure(figsize=(7,7))
