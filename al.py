@@ -1,4 +1,5 @@
 from Algorithm_RIS import generate_channel
+from Algorithm_RIS import run_mse_esti
 
 #Converting this to python: 
 import numpy as np
@@ -9,7 +10,7 @@ import base64
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from io import BytesIO
 
-def statistical_model():
+def statistical_model(coordinates, esti_theta, esti_d, collection):
 
     #f = 2.4*10^9;
     #M = 1;                    # Antennas in TX
@@ -35,10 +36,24 @@ def statistical_model():
 
     RIS_pos = np.array([0, 3, 0]) # Stationary RIS position
 
-    distance = 3
+    #distance = 3
 
-    theta_real = 20
+    #theta_real = 20 
 
+    distance = 0
+
+    theta_real = 0
+
+    if collection is not None: 
+        collection = []
+
+    if coordinates is not None: 
+        for i, (x, y) in enumerate(coordinates):
+            distance = np.sqrt((x - RIS_pos[0])**2 + (y - RIS_pos[1])**2)
+            theta_real = np.degrees(np.arctan2(y - RIS_pos[1], x - RIS_pos[0]))
+            esti_theta, esti_d = run_mse_esti(distance, theta_real, snrdb = 100, ietration = 10, risset = 0, coordinates=[(x, y)])
+            collection.append((esti_theta.tolist(), esti_d.tolist()))
+    
 
     # calculate deltaX_r using trigonometry, where deltaX_r means the x-coordinate of the object position relative to the RIS position
     # deltaX_r is the x-coordinate of the object position relative to the RIS position
