@@ -19,18 +19,18 @@ A GUI for object detection using simulated WiFi-signals.
 ## 📘 Project Description
 
 This project is a Flask-based web GUI for visualizing object detection using WiFi signals and Reconfigurable Intelligent Surfaces (RIS). 
-It enables users to simulate signal reflections, estimate object positions using MSE, and visualize the results through plots, histograms, and ROC curves. The Target-Absent vs Target-Present Histogram and Simulated
-ROC curves are used to evaluate, whether or not, there is an object present at the estimated coordinate
-through evaluating the performance of the detector (See **Algorithms and Methods** section). By having the two statistical methods, it essentially helps us compare
-the performance of our detection algorithm.
+It enables users to simulate signal reflections, estimate object positions using MSE, and visualize the results through plots, histograms, and ROC curves. The **Target-Absent vs Target-Present Histogram** and **ROC curve** are used to evaluate, whether or not, there is an object present at the estimated coordinate through evaluating the performance of the detector (See **Algorithms and Methods** section). By having the two statistical methods, it essentially helps us compare the performance of our detection algorithm.
 
 ## ⚙️ System Description
 
-The system involves a 2D indoor channel model with a transmitter (TX) with M antennas, an object
-with unknown position, located inside a 2D plane and a Reconfigurable Intelligent Surfaces (RIS) with
-N antennas, whose phase shifts can be designed to enhance the signal strength and thus the signal
-performance. The RIS act as the passive element that reflects the signal to the object of interest with
+The system simulates a 2D indoor channel model with:
+- A **transmitter (TX)** equipped with `M` antennas. 
+- A **target object** with unknown position on a 2D plane. 
+- A **Reconfigurable Intelligent Surface (RIS)** with `N` elements, designed to reflect signals using phase shifts.
+
+The RIS act as the passive element that reflects the signal to the object of interest with
 applied phase shifts, which enables the possibility of detecting changes.
+
 In our project, we only consider a single transmitter and RIS at locations (3,0) and (0,3), respectively
 for the sake of simplicity.
 
@@ -44,11 +44,11 @@ for the sake of simplicity.
 
 ## ✨ Features
 
-- **User Login System** – Simple authentication with predefined credentials  
-- **Graphical User Interface** – Built with HTML/CSS and Flask for the server part
+- **User Login System** – Simple session-based authentication with predefined credentials  
+- **Interactive Web GUI** – Built with HTML/CSS and Flask  
 - **Signal Reflection Simulation** – Models how WiFi signals interact with objects and RIS  
-- **Estimation** – Predicts object location using Mean Squared Error (MSE)  
-- **Statistical Visualization** – ROC curve and histograms for evaluating detection reliability
+- **Object Localization** – Estimates object position using Mean Squared Error (MSE)  
+- **Statistical Visualization** – ROC curves and histograms to evaluate detection performance
 
 
 ## 🛠️ Tech Stack
@@ -105,6 +105,8 @@ values, when an object is absent.
 ```
 
 ## 🎥 Demo
+
+
 
 ## 📌 Future Work
 
