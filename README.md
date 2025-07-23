@@ -5,27 +5,44 @@ A GUI for object detection using simulated WiFi-signals.
 ## 📚 Table of Contents
 
 - [📘 Project Description](#-project-description)
+  
 - [⚙️ System Description](#-system-description)
+  
 - [🧰 Prerequisites](#-prerequisites)
+  
 - [✨ Features](#-features)
+  
 - [🛠️ Tech Stack](#-tech-stack)
+  
 - [📦 Installation](#-installation)
+  
 - [🔬 Algorithms and Methods](#-algorithms-and-methods)
+  
 - [🧱 Directory Structure](#-directory-structure)
+  
 - [🎥 Demo](#-demo)
+  
 - [📌 Future Work](#-future-work)
 
 
 ## 📘 Project Description
 
 This project is a Flask-based web GUI for visualizing object detection using WiFi signals and Reconfigurable Intelligent Surfaces (RIS). 
-It enables users to simulate signal reflections, estimate object positions using MSE, and visualize the results through plots, histograms, and ROC curves. The **Target-Absent vs Target-Present Histogram** and **ROC curve** are used to evaluate, whether or not, there is an object present at the estimated coordinate through evaluating the performance of the detector (See **Algorithms and Methods** section). By having the two statistical methods, it essentially helps us compare the performance of our detection algorithm.
+
+It enables users to simulate signal reflections, estimate object positions using MSE, and visualize the results through plots, histograms, and ROC curves. The **Target-Absent vs Target-Present Histogram** and
+
+**ROC curve** are used to evaluate, whether or not, there is an object present at the estimated coordinate through evaluating the performance of the detector (See **Algorithms and Methods** section). By having 
+
+the two statistical methods, it essentially helps us compare the performance of our detection algorithm.
 
 ## ⚙️ System Description
 
 The system simulates a 2D indoor channel model with:
-- A **transmitter (TX)** equipped with `M` antennas. 
-- A **target object** with unknown position on a 2D plane. 
+
+- A **transmitter (TX)** equipped with `M` antennas.
+  
+- A **target object** with unknown position on a 2D plane.
+  
 - A **Reconfigurable Intelligent Surface (RIS)** with `N` elements, designed to reflect signals using phase shifts.
 
 The RIS act as the passive element that reflects the signal to the object of interest with
@@ -38,25 +55,35 @@ for the sake of simplicity.
 ## 🧰 Prerequisites
 
 - Python 3.8+ (Python 3.12.1 recommended)
+  
 - pip (Python package manager)
+  
 - Visual Studio Code (Recommended)
 
 
 ## ✨ Features
 
-- **User Login System** – Simple session-based authentication with predefined credentials  
-- **Interactive Web GUI** – Built with HTML/CSS and Flask  
-- **Signal Reflection Simulation** – Models how WiFi signals interact with objects and RIS  
-- **Object Localization** – Estimates object position using Mean Squared Error (MSE)  
+- **User Login System** – Simple session-based authentication with predefined credentials
+  
+- **Interactive Web GUI** – Built with HTML/CSS and Flask
+  
+- **Signal Reflection Simulation** – Models how WiFi signals interact with objects and RIS
+  
+- **Object Localization** – Estimates object position using Mean Squared Error (MSE)
+  
 - **Statistical Visualization** – ROC curves and histograms to evaluate detection performance
 
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Python, Flask  
-- **Frontend**: HTML, CSS  
-- **Data & Logic**: Numpy, Matplotlib  
-- **Authentication**: Basic session-based login system  
+- **Backend**: Python, Flask
+  
+- **Frontend**: HTML, CSS
+  
+- **Data & Logic**: Numpy, Matplotlib
+  
+- **Authentication**: Basic session-based login system
+  
 - **Visualization**: Plotting with Matplotlib (saved and embedded in UI)
 
 
@@ -81,15 +108,17 @@ password: JamesJac123
 ## 🔬 Algorithms and Methods
 
 - **Channel Modeling:** Simulates the propagation of WiFi signals reflecting off a Reconfigurable Intelligent Surface (RIS) to reach a target object.
+  
 - **MSE Estimation:** Object position is estimated by minimizing the Mean Squared Error between simulated and expected signals.
+  
 - **Statistical Detection:** Uses probabilistic distributions via histograms to distinguish between the presence and absence of a target. It tells us, how accurate the detector separates between when an object is present vs when an object is absent.
+  
 - **ROC Curve Analysis:** Provides insight into the trade-off between false alarms and detection accuracy. With ROC-curve, it tells us, how well the detector can detect objects, while also reject incorrect signal
 values, when an object is absent.
 
 ## 🧱 Directory Structure 
 
 ```
-
 ├── Project.py             # Flask application logic
 ├── Algorithm.py           # Room layout and plot generation
 ├── Algorithm_RIS.py       # RIS-enhanced channel simulation & estimation
