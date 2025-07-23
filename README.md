@@ -5,6 +5,7 @@ A GUI for object detection using simulated WiFi-signals.
 ## 📚 Table of Contents
 
 - [📘 Project Description](#-project-description)
+- [⚙️ System Description](#-system-description)
 - [🧰 Prerequisites](#-prerequisites)
 - [✨ Features](#-features)
 - [🛠️ Tech Stack](#-tech-stack)
