@@ -134,7 +134,21 @@ values, when an object is absent.
 ```
 
 ## 🎥 Demo
+### After performing the Installation steps and go to http://127.0.0.1:5000/login, we come to the page shown below, where we subsequently input the login: 
 
+<img width="1900" height="937" alt="image" src="https://github.com/user-attachments/assets/7552bb3d-8f44-48ee-8632-ee6a04bf8955" />
+
+### After being authenticated, we navigate to the home page: 
+
+<img width="1901" height="943" alt="image" src="https://github.com/user-attachments/assets/d82625cd-4921-42ef-81f6-fa18714c73f4" />
+<img width="1920" height="941" alt="image" src="https://github.com/user-attachments/assets/79842e18-651b-49d8-a883-b032a00e8ca6" />
+<img width="1896" height="756" alt="image" src="https://github.com/user-attachments/assets/85bfc48c-295b-49e9-a190-13a39621912f" />
+
+### As an example, if the user inputs x = 4 and y = 7 in input x and input 7 as true coordinates, then the corresponding estimate of object position is shown on graph with the corresponding histogram and curve: 
+
+<img width="1898" height="936" alt="image" src="https://github.com/user-attachments/assets/8725c425-ae11-4669-9948-8f136bb347eb" />
+<img width="1897" height="631" alt="image" src="https://github.com/user-attachments/assets/b79c38e5-1ed8-48ff-bcf0-f0c2284484c1" />
+<img width="1891" height="757" alt="image" src="https://github.com/user-attachments/assets/fdeca162-522a-4c1b-8a4b-03a2b15321a4" />
 
 
 ## 📌 Future Work
@@ -146,6 +160,8 @@ values, when an object is absent.
   If history of the route is cleared from web browser, the user has to login with correct credentials, otherwise login is not possible.
 
 - Designing a new algorithm, where we include RIS (ris set to 0) to enhance the signal.
+
+- Modify existing code to maybe implement system so that it is more dynamic. 
   
 - Register users safely in database, since in current project, we store it manually in python web framework Flask, which is considered unsafe.
   
